@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>New Streaming Player</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <script src="bower_components/flatpickr/dist/flatpickr.js"></script>
+                            
+
+    <!-- CSS-->
+    <link rel="stylesheet" href="stylesheets/sa.css">
+    <!--<link rel="stylesheet" href="stylesheets/main.css">-->
+    <link rel="stylesheet" type="text/css" href="bower_components/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="simpletabs_v1.3/css/simpletabs.css">
+    <link rel="stylesheet" type="text/css" href="simpletabs_v1.3/css/style.css">
+    
+</head>
+
+<body>
+    <div class="Container">
+        <div class="u-textCenter">
+            <h2 class="u-textCenter">Streaming Archive Beta Player</h2>
+        </div> <!--end .u-textCenter-->
+
+
+    <!-- Inputs -->
+    <div class="u-grid-row">
+
+        <div id="sa-inputs" class="u-mb2 u-text-center u-grid-col u-grid-md-col8">
+            <div class="simpleTabs">
+                <ul class="simpleTabsNavigation">
+                    <li><a href="#">By Day and Time</a></li>
+                    <li><a href="#">By Show</a></li>
+                    <li><a href="#">By Host</a></li>
+                </ul>
+                <div class="simpleTabsContent"> 
+                    <div class="flatpickr"  data-wrap="true">
+                        <input type="text" id="datepicker" placeholder="By Date and Time">
+                    </div>
+                </div>
+
+                <div class="simpleTabsContent">
+                    <div class="FloatingSelect">
+                        <select id="chooseShow" title="By Show">
+                            <option value="audioasis">Select A Show</option>
+                        </select>
+                    </div> <!-- end .FloatingSelect -->
+
+                    <div class="FloatingSelect" id="showTimesSelect">
+                        <select id="showTimes">
+                            <option>Select A Time</option>
+                        </select>
+                    </div> <!-- end .FloatingSelect -->
+                </div> <!-- end simpleTabsContent -->
+
+                <div class="simpleTabsContent">
+                    <div class= "FloatingSelect">
+                        <select id="showHosts">
+                            <option>Select A Host</option>
+                        </select>
+                    </div> <!-- end .FloatingSelect -->
+
+                    <div class="FloatingSelect" id="timesHostsSelect">
+                        <select id="showTimesHost">
+                         <option>Select A Time</option>
+                        </select>
+                    </div> <!-- end .FloatingSelect -->
+
+                </div> <!-- End of simpleTabsContent -->
+            </div> <!-- End of simpleTabsContent -->
+              
+            <div id="submitButton" class="u-textCenter u-mb2">
+                <input type="button" class="RoundedButton" id="submit" value="Submit" disabled title="Select a day, time, or host to enable">
+            </div>
+        </div> <!-- End of #sa-inputs -->
+    
+
+        <!-- JW Player 
+        <div class ="u-grid-col u-grid-md-col8 u-mb2">
+            <div id="saPlayer">
+                
+            </div>
+        </div> -->
+
+        <!--<div class ="u-grid-col u-grid-md-col8 u-mb2">
+            <audio controls id="player">
+                <source src="http://as1.kexp.org/stream/archive/pvrx9Z5PxHlgftRnyQ-7Dc_MsJFlZu2r50-DW7AblK_Ag8Zox4bHag2">
+            </audio>
+        </div>-->
+
+        <audio id="music" preload="true" autoplay>
+            <source src="">
+	    </audio>
+        <div id="audioplayer">
+	        <button id="pButton" class="play"></button>
+        <div id="timeline">
+  		    <div id="playhead"></div>
+            </div>
+        </div>
+
+
+
+        <!-- Rather than having an alert popup, display errors in here -->
+        <div class ="u-grid-col u-grid-md-col8 u-mb2">
+            <div class="Alert" id="error">
+            <svg class="Alert-close" data-alert-close="" width="14" height="14" viewBox="0 0 14 14"
+            version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g class="Alert-closeStroke" transform="translate(1.000000, 0.000000)" stroke="#000000" stroke-width="2">
+                    <g transform="translate(0.000000, 0.637800)">
+                      <path d="M0,12.3622 L12,0.3622" id="path2985"></path>
+                      <path d="M0,0.3622 L12,12.3622" id="path2985-1"></path>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </div> <!-- end of Alert -->
+        </div>
+
+        <!-- Show Meta data as a PlaylistItem -->
+        <div class ="u-grid-col u-grid-md-col8 u-mb2">
+
+         
+
+            <!-- end .PlaylistItem-image -->
+            <div class="PlaylistItem u-mb1" id="meta">
+
+               <div class="PlaylistItem-image">
+                <div class="SquareImage">
+                    <img class="SquareImage-image" id="metaimg" src="" alt="">
+                </div>
+            <!-- end .SquareImage -->
+
+            <!--<span class="PlaylistItem-time RoundedButton RoundedButton--small">7:55pm</span>-->
+            </div>
+
+
+
+                <div class="PlaylistItem-primaryContent">
+                    <h3 class="u-mb0" id="metatitle">Song Title</h3>
+                    <div class="u-h3 u-mb1 u-lightWeight" id="metaartist">Artist Name</div>
+                    <div class="u-h5 u-mb0 u-italic u-normalCase" id="metaalbum">Album Name</div>
+                    <div class="u-h5" id="metayear">Release Year - Label</div>
+                </div>
+            <!-- end .PlaylistItem-primaryContent -->
+            </div>
+
+        </div> <!--end of PlaylistItem u-mb1-->
+
+    </div> <!--end of u-grid-row-->
+</div> <!-- End of Container -->
+
+
+<!-- Interval is global used across different js files for timer for meta data  -->
+<script type='text/javascript'> 
+  var interval = null; 
+</script>
+
+<!-- JQuery jquery.min.js and jquery-ui.min.js-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+<!-- SA Relevant-->
+<script type="text/javascript" src="src/sa.js"></script>
+
+<!-- Simple Tabs -->
+<script type="text/javascript" src="simpletabs_v1.3/js/simpletabs_1.3.js"> </script>
+
+<!-- Moment Tool -->
+<script src="src/moment.js"></script>
+
+<!-- 'By Day' Calendar -->
+<script src="bower_components/flatpickr/dist/flatpickr.js"></script>
+
+</body>
+</html>

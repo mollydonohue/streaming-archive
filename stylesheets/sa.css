@@ -1,0 +1,444 @@
+/* Streaming Archive (sa) Styling */
+/* Created by Molly Donohue, Fall 2016 */
+
+/*Style conflicts to resolve with old kexp.org */
+
+
+a, a:visited {
+    color: black;
+}
+
+a:hover {
+    color: #feac31;
+}
+
+/*PLAYER CSS*/
+#audioplayer{
+	width: 480px;
+	height: 60px;
+	/*margin: 50px auto auto auto;*/
+  border: solid #f4f4f4
+;
+}
+
+#pButton{
+    height:60px;
+    width: 60px;
+    border: none;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    float:left;
+    outline:none;
+}
+
+.play{background: url('https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fmedia.jrn.com%2Fimages%2Fplay-button-anatomy.png&f=1') ;}
+.pause{background: url('https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.clker.com%2Fcliparts%2Fn%2Fe%2Fy%2F0%2FM%2FZ%2Fstop-button-grey-hi.png&f=1') ;}
+
+#timeline{
+	width: 400px;
+	height: 20px;
+	margin-top: 20px;
+	float: left;
+	border-radius: 15px;
+	background: rgba(0,0,0,.3);
+
+}
+#playhead{
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	margin-top: 1px;
+	background: rgba(0, 0, 0,1);
+
+}
+/* End Player CSS */
+
+
+/*CSS from main.css */
+#submit:disabled {
+    background-color: #feac31;
+}
+
+/* FloatingSelect ---------------------------- */
+.FloatingSelect {
+    position: relative;
+    display: inline-block;
+    margin-right: 0.75rem;
+}
+.FloatingSelect:focus {
+    outline: none;
+    -moz-outline-style: none;
+}
+.FloatingSelect:after {
+    display: block;
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    top: 50%;
+    height: 0.8em;
+    width: 0.8em;
+    margin-top: -0.3em;
+    content: "";
+    background: url(down-arrow.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+/* Child Elements */
+.FloatingSelect select {
+    font-family: "proxima-nova", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    text-align: right;
+    border: none;
+    background: none;
+    outline: none;
+    position: relative;
+    padding-right: 1.1em;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0px;
+    -moz-appearance: none;
+    z-index: 2;
+}
+/* Modifiers */
+.FloatingSelect--small {
+    font-size: 0.8rem;
+}
+
+/* -------------------------- */
+/* Playlist Item              */
+/* -------------------------- */
+.PlaylistItem {
+    background: #f4f4f4;
+    position: relative;
+}
+@media screen and (min-width: 580px) {
+    .PlaylistItem {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+    }
+}
+/* Child Elements */
+.PlaylistItem-image {
+    position: relative;
+    float: left;
+    width: 30%;
+    margin-right: 1rem;
+}
+@media screen and (min-width: 580px) {
+    .PlaylistItem-image {
+        width: auto;
+        float: none;
+        margin-right: 0;
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 10rem;
+                flex: 0 0 10rem;
+    }
+}
+.PlaylistItem-label {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+@media screen and (min-width: 580px) {
+    .PlaylistItem-label {}
+}
+.PlaylistItem-primaryContent {
+    padding: 1rem;
+    margin-left: 30%;
+}
+@media screen and (min-width: 580px) {
+    .PlaylistItem-primaryContent {
+        margin-left: 0;
+        -webkit-box-flex: 0;
+            -ms-flex: 0 1 40%;
+                flex: 0 1 40%;
+    }
+}
+.PlaylistItem-secondaryContent {
+    padding: 1rem;
+    margin-left: 30%;
+}
+.PlaylistItem-secondaryContent p {
+    color: #222222;
+}
+@media screen and (min-width: 580px) {
+    .PlaylistItem-secondaryContent {
+        margin-left: 0;
+        -webkit-box-flex: 0;
+            -ms-flex: 0 1 50%;
+                flex: 0 1 50%;
+    }
+}
+.PlaylistItem-time {
+    font-family: "proxima-nova", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 5rem;
+            flex: 0 0 5rem;
+    color: #222222;
+    text-align: right;
+    padding: 1rem;
+}
+
+/* ------------------------------------- */
+/* Square Image                          */
+/* ------------------------------------- */
+.SquareImage {
+    width: 100%;
+    padding-bottom: 100%;
+    overflow: hidden;
+    position: relative;
+    display: block;
+}
+/* Child Elements */
+.SquareImage-image {
+    position: absolute;
+    width: auto;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: none;
+}
+
+/* RoundedButton ----------------------- */
+.RoundedButton, .RadioButton-button, .Player--played:not(.Player--streamPlaying) .Player-ctaHeadline {
+    font-family: "proxima-nova", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    background: #feac31;
+    border: none;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 1rem;
+    line-height: 1;
+    border-radius: 2em;
+    padding: 0.8em 1.5em 0.9em 1.5em;
+    -webkit-transition: background 150ms;
+    transition: background 150ms;
+}
+.RoundedButton + .RoundedButton, .RadioButton-button + .RoundedButton, .Player--played:not(.Player--streamPlaying) .Player-ctaHeadline + .RoundedButton {
+    margin-left: 0.5rem;
+}
+.RoundedButton:hover, .RadioButton-button:hover, .Player--played:not(.Player--streamPlaying) .Player-ctaHeadline:hover {
+    background: #222222;
+    color: white;
+}
+.RoundedButton:focus, .RadioButton-button:focus, .Player--played:not(.Player--streamPlaying) .Player-ctaHeadline:focus {
+    outline: none;
+}
+.RoundedButton:disabled, .RadioButton-button:disabled, .Player--played:not(.Player--streamPlaying) .Player-ctaHeadline:disabled {
+    background: #c1c1c1;
+    opacity: 0.5;
+    cursor: default;
+}
+.RoundedButton:disabled:hover, .RadioButton-button:disabled:hover, .Player--played:not(.Player--streamPlaying) .Player-ctaHeadline:disabled:hover {
+    background: #c1c1c1;
+}
+
+.RoundedButton--small, .Player--played:not(.Player--streamPlaying) .Player-ctaHeadline {
+    font-size: 0.555rem;
+    text-transform: uppercase;
+    padding: 0.7em 1.2em 0.6em 1.2em;
+    border-radius: 1.5em;
+    letter-spacing: 0.05em;
+}
+
+/* -------------------------- */
+/* Type Utility Classes    */
+/* -------------------------- */
+/* Header styles */
+.u-h1 {
+    font-family: "proxima-nova", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    text-transform: none;
+    font-size: 2.1rem;
+    line-height: 1.1;
+    color: #222222;
+}
+@media screen and (min-width: 580px) {
+    .u-h1 {
+        font-size: 2.5rem;
+    }
+}
+.u-h2 {
+    font-family: "proxima-nova", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 1.6rem;
+    line-height: 1.1;
+    text-transform: none;
+    color: #222222;
+}
+@media screen and (min-width: 580px) {
+    .u-h2 {
+        font-size: 2rem;
+        line-height: 1.1;
+    }
+}
+.u-h3 {
+    font-family: "proxima-nova", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    font-size: 1.3333rem;
+    color: #222222;
+    text-transform: none;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+}
+@media screen and (min-width: 580px) {
+    .u-h3 {
+        font-size: 1.333rem;
+    }
+}
+.u-h4 {
+    font-family: "proxima-nova", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    text-transform: none;
+    color: #222222;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+.u-h5 {
+    font-family: "proxima-nova", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.6666rem;
+    margin-bottom: 0.5rem;
+    color: #8e8e8e;
+    line-height: 1.4;
+}
+
+/* Case */
+.u-normalCase {
+    text-transform: none;
+}
+.u-upperCase {
+    text-transform: upper;
+}
+/* Weight */
+.u-lightWeight {
+    font-weight: 300;
+}
+.u-normalWeight {
+    font-weight: 400;
+}
+.u-semiboldWeight {
+    font-weight: 600;
+}
+/* Style */
+.u-italic {
+    font-style: italic;
+}
+
+.u-mb0 {
+    margin-bottom: 0rem !important;
+}
+
+.u-mb1 {
+    margin-bottom: 1rem !important;
+}
+
+.u-small {
+    font-size: 0.7rem;
+}
+
+.u-textCenter {
+    text-align: center !important;
+}
+.form-control.input {
+    width: 215px;
+    padding: 5px;
+    font-size: 12pt;
+}
+
+body {
+   font-family: "proxima-nova", Helvetica, Arial, sans-serif;
+}
+
+/* End of main.css */
+
+.Alert, #meta, #audioplayer {
+    display: none;
+}
+
+#datepicker { 
+    background-color: #F0F0F0;
+    border-radius: 0;
+    font-family: inherit;
+    font-weight: normal;
+    width: 200px;
+
+}
+
+.flatpickr-day.selected, .flatpickr-day.selected:focus, .flatpickr-day.selected:hover {
+    background-color: #feac31;
+    border-color: #feac31;
+}
+
+.mainHeader {
+    padding: 10px 0px 10px 40px;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: #feac31;
+
+}
+
+h2.u-textCenter {
+    font-weight: 300;
+}
+
+h2 {
+    font-size: 20pt;
+}
+
+
+/* These inputs are hidden until show Dj's are selected */
+#showTimesSelect, #timesHostsSelect, #varietyDjs {
+    display: none;
+}
+
+#sa-inputs {
+    padding-top: 2rem;
+}
+
+#tabs-2 > select, #tabs-3 > select {
+    margin-bottom: 15px;
+}
+
+select, select > option {
+    font-family:  "proxima-nova", Helvetica, Arial, sans-serif;
+    padding: 10px;
+
+}
+
+select {
+    float: left;
+    clear: left;
+}
+
+#submit {
+    border: none;
+    font-size: 15px;
+    font-weight: normal;
+}
+
+#submit:disabled {
+    background-color: #feac31;
+}
+
+
+.PlaylistItem {
+    overflow: hidden;
+}
+.PlaylistItem-image {
+    width: 20% !important;
+    float: left !important;
+}
+
+.PlaylistItem-primaryContent {
+    width: 60% !important;
+    margin-left: 0 !important;
+    float: left;
+}
